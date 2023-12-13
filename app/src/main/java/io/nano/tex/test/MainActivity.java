@@ -33,13 +33,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.next_sample:
-                nextSample();
-                break;
-            case R.id.debug:
-                switchDebug(item);
-                break;
+        int itemId = item.getItemId();
+        if (itemId == R.id.next_sample) {
+            nextSample();
+        } else if (itemId == R.id.debug) {
+            switchDebug(item);
         }
         return super.onOptionsItemSelected(item);
     }

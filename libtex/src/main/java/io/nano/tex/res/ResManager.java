@@ -22,9 +22,11 @@ public final class ResManager {
     private static final String TAG = "ResManager";
 
     private String rootDir;
+    private final Context context;
 
     public ResManager(Context context) {
         rootDir = context.getFilesDir().getPath() + File.separator + "tex";
+        this.context = context;
     }
 
     public String getResourcesRootDirectory() {
@@ -32,7 +34,12 @@ public final class ResManager {
     }
 
     private List<String> listRes() {
-        InputStream is = ResManager.class.getResourceAsStream("RES_README");
+        InputStream is;
+        try {
+            is = context.getResources().getAssets().open("RES_README", Context.MODE_PRIVATE);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         BufferedReader in = new BufferedReader(new InputStreamReader(is));
         String line;
         List<String> res = new ArrayList<>();
@@ -65,7 +72,12 @@ public final class ResManager {
                 if (!f.exists()) f.mkdirs();
             }
             String p = rootDir + File.separator + path;
-            InputStream is = ResManager.class.getResourceAsStream(path);
+            InputStream is = null;
+            try {
+                is = context.getAssets().open(path);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
             Log.i(TAG, "Copy resource: " + path);
             copyTo(is, p);
         }
