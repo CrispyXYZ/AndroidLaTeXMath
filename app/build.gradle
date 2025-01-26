@@ -1,7 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion compileSdk
+    namespace "io.nano.tex.test"
+    compileSdkVersion 27
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
@@ -10,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "io.nano.tex.test"
-        minSdkVersion minSdk
+        minSdkVersion 27
         targetSdkVersion compileSdk
         versionCode 1
         versionName "1.0"
