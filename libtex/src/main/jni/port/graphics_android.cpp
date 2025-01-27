@@ -1,6 +1,6 @@
 #include "config.h"
 
-#ifdef __OS_Android__
+#ifdef __ANDROID__
 
 #include "jni_def.h"
 #include "jni_log.h"

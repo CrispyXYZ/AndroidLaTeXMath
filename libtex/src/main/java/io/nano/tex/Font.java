@@ -9,6 +9,7 @@ public final class Font {
 
     private Typeface typeface;
     private float size;
+    static String rootDir;
 
     private Font(Typeface typeface, float size) {
         this.typeface = typeface;
@@ -35,7 +36,7 @@ public final class Font {
     }
 
     public static Font create(String file, float size) {
-        Typeface tf = Typeface.createFromFile(file);
+        Typeface tf = Typeface.createFromFile(rootDir + "/" + file.substring(4));
         return new Font(tf, size);
     }
 }

@@ -1,6 +1,8 @@
 #include "config.h"
 
-#ifdef __OS_Android__
+#define _out_
+
+#ifdef __ANDROID__
 
 #ifndef GRAPHICS_ANDROID_INCLUDED
 #define GRAPHICS_ANDROID_INCLUDED
@@ -9,6 +11,7 @@
 #include "graphic/graphic.h"
 
 using namespace tex;
+using namespace std;
 
 class Font_Android : public Font {
 private:

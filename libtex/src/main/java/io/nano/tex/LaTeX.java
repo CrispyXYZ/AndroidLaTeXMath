@@ -38,6 +38,7 @@ public final class LaTeX {
     public synchronized void init(Context context) {
         ResManager rm = new ResManager(context);
         rm.unpackResources();
+        Font.rootDir = rm.getResourcesRootDirectory();
         boolean success = nInit(rm.getResourcesRootDirectory());
         if (!success) {
             throw new TeXException("Failed to initialize LaTeX engine.");

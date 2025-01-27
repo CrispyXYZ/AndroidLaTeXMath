@@ -13,7 +13,7 @@ android {
     }
 
     defaultConfig {
-        minSdkVersion minSdk
+        minSdkVersion 14
         targetSdkVersion compileSdk
         versionCode 1
         versionName "1.0.0"
